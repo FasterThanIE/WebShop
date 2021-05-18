@@ -59,7 +59,7 @@
             <div class="navbar-inner">
                 <a class="brand" href="index.html"><img src="themes/images/logo.png" alt="Bootsshop"/></a>
                 <form  class="form-inline navbar-search" method="post" action="products.html" >
-                    <input id="srchFld" class="srchTxt w-100" type="text" />
+                    <input id="srchFld" class="srchTxt" type="text" />
 
                     <button type="submit" id="submitButton" class="btn btn-primary">Go</button>
                 </form>
@@ -68,30 +68,38 @@
                     <li class=""><a href="normal.html">Delivery</a></li>
                     <li class=""><a href="contact.html">Contact</a></li>
                     <li class="">
-                        <a href="#login" role="button" data-toggle="modal" style="padding-right:0"><span class="btn btn-large btn-success">Login</span></a>
-                        <div id="login" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="false" >
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                <h3>Login Block</h3>
-                            </div>
-                            <div class="modal-body">
-                                <form class="form-horizontal loginFrm">
-                                    <div class="control-group">
-                                        <input type="text" id="inputEmail" placeholder="Email">
-                                    </div>
-                                    <div class="control-group">
-                                        <input type="password" id="inputPassword" placeholder="Password">
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="checkbox">
-                                            <input type="checkbox"> Remember me
-                                        </label>
-                                    </div>
+                        <!-- Authentication Links -->
+                    @guest
+                        @if (Route::has('login'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                        @endif
+
+                        @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            </li>
+                        @endif
+                    @else
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
                                 </form>
-                                <button type="submit" class="btn btn-success">Sign in</button>
-                                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
                             </div>
-                        </div>
+                        </li>
+                        @endguest
                     </li>
                 </ul>
             </div>

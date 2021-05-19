@@ -7,210 +7,236 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <!--Less styles -->
-    <!-- Other Less css file //different less files has different color scheam
-     <link rel="stylesheet/less" type="text/css" href="themes/less/simplex.less">
-     <link rel="stylesheet/less" type="text/css" href="themes/less/classified.less">
-     <link rel="stylesheet/less" type="text/css" href="themes/less/amelia.less">  MOVE DOWN TO activate
-     -->
-    <!--<link rel="stylesheet/less" type="text/css" href="themes/less/bootshop.less">
-    <script src="themes/js/less.js" type="text/javascript"></script> -->
 
-    <!-- Bootstrap style -->
-    <link id="callCss" rel="stylesheet" href="themes/bootshop/bootstrap.min.css" media="screen"/>
-    <link href="themes/css/base.css" rel="stylesheet" media="screen"/>
-    <!-- Bootstrap style responsive -->
-    <link href="themes/css/bootstrap-responsive.min.css" rel="stylesheet"/>
-    <link href="themes/css/font-awesome.css" rel="stylesheet" type="text/css">
-    <!-- Google-code-prettify -->
-    <link href="themes/js/google-code-prettify/prettify.css" rel="stylesheet"/>
-    <!-- fav and touch icons -->
-    <link rel="shortcut icon" href="themes/images/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="themes/images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="themes/images/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="themes/images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="themes/images/ico/apple-touch-icon-57-precomposed.png">
-    <style type="text/css" id="enject"></style>
+    <title>IndoMarket - Free E-Commerce Website Template built with Boostrap 4 and Argon Design System</title>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="./assets/css/nucleo-icons.css" rel="stylesheet">
+    <link href="./assets/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Jquery UI -->
+    <link type="text/css" href="./assets/css/jquery-ui.css" rel="stylesheet">
+
+    <!-- Argon CSS -->
+    <link type="text/css" href="./assets/css/argon-design-system.min.css" rel="stylesheet">
+
+    <!-- Main CSS-->
+    <link type="text/css" href="./assets/css/style.css" rel="stylesheet">
+
+    <!-- Optional Plugins-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+
 </head>
 <body>
-<div id="header">
-    <div class="container">
-        <div id="welcomeLine" class="row">
-            <div class="span6">Welcome!<strong> User</strong></div>
-            <div class="span6">
-                <div class="pull-right">
-                    <a href="product_summary.html"><span class="">Fr</span></a>
-                    <a href="product_summary.html"><span class="">Es</span></a>
-                    <span class="btn btn-mini">En</span>
-                    <a href="product_summary.html"><span>&pound;</span></a>
-                    <span class="btn btn-mini">$155.00</span>
-                    <a href="product_summary.html"><span class="">$</span></a>
-                    <a href="product_summary.html"><span class="btn btn-mini btn-primary"><i class="icon-shopping-cart icon-white"></i> [ 3 ] Itemes in your cart </span> </a>
+<header class="header clearfix">
+    <div class="top-bar d-none d-sm-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 text-left">
+                    <ul class="top-links contact-info">
+                        <li><i class="fa fa-envelope-o"></i> <a href="#">contact@example.com</a></li>
+                        <li><i class="fa fa-whatsapp"></i> +1 5589 55488 55</li>
+                    </ul>
+                </div>
+                <div class="col-6 text-right">
+                    <ul class="top-links account-links">
+                        <li><i class="fa fa-user-circle-o"></i> <a href="#">My Account</a></li>
+                        <li><i class="fa fa-power-off"></i> <a href="#">Login</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
-        <!-- Navbar ================================================== -->
-        <div id="logoArea" class="navbar">
-            <a id="smallScreen" data-target="#topMenu" data-toggle="collapse" class="btn btn-navbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </a>
-            <div class="navbar-inner">
-                <a class="brand" href="index.html"><img src="themes/images/logo.png" alt="Bootsshop"/></a>
-                <form  class="form-inline navbar-search" method="post" action="products.html" >
-                    <input id="srchFld" class="srchTxt" type="text" />
-
-                    <button type="submit" id="submitButton" class="btn btn-primary">Go</button>
-                </form>
-                <ul id="topMenu" class="nav pull-right">
-                    <li class=""><a href="special_offer.html">Specials Offer</a></li>
-                    <li class=""><a href="normal.html">Delivery</a></li>
-                    <li class=""><a href="contact.html">Contact</a></li>
-                    <li class="">
-                        <!-- Authentication Links -->
-                    @guest
-                        @if (Route::has('login'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                        @endif
-
-                        @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                            </li>
-                        @endif
-                    @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
+    </div>
+    <div class="header-main border-top">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-12 col-sm-6">
+                    <a class="navbar-brand mr-lg-5" href="./index.html">
+                        <i class="fa fa-shopping-bag fa-3x"></i> <span class="logo">IndoMarket</span>
+                    </a>
+                </div>
+                <div class="col-lg-7 col-12 col-sm-6">
+                    <form action="#" class="search">
+                        <div class="input-group w-100">
+                            <input type="text" class="form-control" placeholder="Search">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit">
+                                    <i class="fa fa-search"></i>
+                                </button>
                             </div>
-                        </li>
-                        @endguest
-                    </li>
-                </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-2 col-12 col-sm-6">
+                    <div class="right-icons pull-right d-none d-lg-block">
+                        <div class="single-icon wishlist">
+                            <a href="#"><i class="fa fa-heart-o fa-2x"></i></a>
+                            <span class="badge badge-default">5</span>
+                        </div>
+                        <div class="single-icon shopping-cart">
+                            <a href="#"><i class="fa fa-shopping-cart fa-2x"></i></a>
+                            <span class="badge badge-default">4</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!-- Header End====================================================================== -->
+    <nav class="navbar navbar-main navbar-expand-lg navbar-light border-top border-bottom">
+        <div class="container">
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav"
+                    aria-controls="main_nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="main_nav">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="true">Pages</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="products.html">Products</a>
+                            <a class="dropdown-item" href="product-detail.html">Product Detail</a>
+                            <a class="dropdown-item" href="cart.html">Cart</a>
+                            <a class="dropdown-item" href="checkout.html">Checkout</a>
+                        </div>
+                    </li>
+                </ul>
+            </div> <!-- collapse .// -->
+        </div> <!-- container .// -->
+    </nav>
+</header>
+
+
 <main class="py-4">
     @yield('content')
 </main>
 
-<!-- Footer ================================================================== -->
-<div  id="footerSection">
-    <div class="container">
-        <div class="row">
-            <div class="span3">
-                <h5>ACCOUNT</h5>
-                <a href="login.html">YOUR ACCOUNT</a>
-                <a href="login.html">PERSONAL INFORMATION</a>
-                <a href="login.html">ADDRESSES</a>
-                <a href="login.html">DISCOUNT</a>
-                <a href="login.html">ORDER HISTORY</a>
+
+
+<footer class="footer bg-primary">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-md-6 col-12">
+                    <!-- Single Widget -->
+                    <div class="single-footer about">
+                        <div class="logo-footer">
+                            <i class="fa fa-shopping-bag fa-3x"></i> <span class="logo">IndoMarket</span>
+                        </div>
+                        <p class="text">Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, magna
+                            eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor,
+                            facilisis luctus, metus.</p>
+                        <p class="call">Got Question? Call us 24/7<span><a href="tel:123456789">+0123 456
+                                        789</a></span></p>
+                    </div>
+                    <!-- End Single Widget -->
+                </div>
+                <div class="col-lg-2 col-md-6 col-12">
+                    <!-- Single Widget -->
+                    <div class="single-footer links">
+                        <h4>Information</h4>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Faq</a></li>
+                            <li><a href="#">Terms &amp; Conditions</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Help</a></li>
+                        </ul>
+                    </div>
+                    <!-- End Single Widget -->
+                </div>
+                <div class="col-lg-2 col-md-6 col-12">
+                    <!-- Single Widget -->
+                    <div class="single-footer links">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#">Payment Methods</a></li>
+                            <li><a href="#">Money-back</a></li>
+                            <li><a href="#">Returns</a></li>
+                            <li><a href="#">Shipping</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <!-- End Single Widget -->
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <!-- Single Widget -->
+                    <div class="single-footer social">
+                        <h4>Get In Touch</h4>
+                        <!-- Single Widget -->
+                        <div class="contact">
+                            <ul>
+                                <li>NO. 342 - London Oxford Street.</li>
+                                <li>012 United Kingdom.</li>
+                                <li>info@indomarket.com</li>
+                                <li>+032 3456 7890</li>
+                            </ul>
+                        </div>
+                        <!-- End Single Widget -->
+                        <ul>
+                            <li><a href="#"><i class="ti-facebook"></i></a></li>
+                            <li><a href="#"><i class="ti-twitter"></i></a></li>
+                            <li><a href="#"><i class="ti-flickr"></i></a></li>
+                            <li><a href="#"><i class="ti-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                    <!-- End Single Widget -->
+                </div>
             </div>
-            <div class="span3">
-                <h5>INFORMATION</h5>
-                <a href="contact.html">CONTACT</a>
-                <a href="register.html">REGISTRATION</a>
-                <a href="legal_notice.html">LEGAL NOTICE</a>
-                <a href="tac.html">TERMS AND CONDITIONS</a>
-                <a href="faq.html">FAQ</a>
-            </div>
-            <div class="span3">
-                <h5>OUR OFFERS</h5>
-                <a href="#">NEW PRODUCTS</a>
-                <a href="#">TOP SELLERS</a>
-                <a href="special_offer.html">SPECIAL OFFERS</a>
-                <a href="#">MANUFACTURERS</a>
-                <a href="#">SUPPLIERS</a>
-            </div>
-            <div id="socialMedia" class="span3 pull-right">
-                <h5>SOCIAL MEDIA </h5>
-                <a href="#"><img width="60" height="60" src="themes/images/facebook.png" title="facebook" alt="facebook"/></a>
-                <a href="#"><img width="60" height="60" src="themes/images/twitter.png" title="twitter" alt="twitter"/></a>
-                <a href="#"><img width="60" height="60" src="themes/images/youtube.png" title="youtube" alt="youtube"/></a>
-            </div>
-        </div>
-        <p class="pull-right">&copy; Bootshop</p>
-    </div><!-- Container End -->
-</div>
-<!-- Placed at the end of the document so the pages load faster ============================================= -->
-<script src="themes/js/jquery.js" type="text/javascript"></script>
-<script src="themes/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="themes/js/google-code-prettify/prettify.js"></script>
-
-<script src="themes/js/bootshop.js"></script>
-<script src="themes/js/jquery.lightbox-0.5.js"></script>
-
-<!-- Themes switcher section ============================================================================================= -->
-<div id="secectionBox">
-    <link rel="stylesheet" href="themes/switch/themeswitch.css" type="text/css" media="screen" />
-    <script src="themes/switch/theamswitcher.js" type="text/javascript" charset="utf-8"></script>
-    <div id="themeContainer">
-        <div id="hideme" class="themeTitle">Style Selector</div>
-        <div class="themeName">Oregional Skin</div>
-        <div class="images style">
-            <a href="themes/css/#" name="bootshop"><img src="themes/switch/images/clr/bootshop.png" alt="bootstrap business templates" class="active"></a>
-            <a href="themes/css/#" name="businessltd"><img src="themes/switch/images/clr/businessltd.png" alt="bootstrap business templates" class="active"></a>
-        </div>
-        <div class="themeName">Bootswatch Skins (11)</div>
-        <div class="images style">
-            <a href="themes/css/#" name="amelia" title="Amelia"><img src="themes/switch/images/clr/amelia.png" alt="bootstrap business templates"></a>
-            <a href="themes/css/#" name="spruce" title="Spruce"><img src="themes/switch/images/clr/spruce.png" alt="bootstrap business templates" ></a>
-            <a href="themes/css/#" name="superhero" title="Superhero"><img src="themes/switch/images/clr/superhero.png" alt="bootstrap business templates"></a>
-            <a href="themes/css/#" name="cyborg"><img src="themes/switch/images/clr/cyborg.png" alt="bootstrap business templates"></a>
-            <a href="themes/css/#" name="cerulean"><img src="themes/switch/images/clr/cerulean.png" alt="bootstrap business templates"></a>
-            <a href="themes/css/#" name="journal"><img src="themes/switch/images/clr/journal.png" alt="bootstrap business templates"></a>
-            <a href="themes/css/#" name="readable"><img src="themes/switch/images/clr/readable.png" alt="bootstrap business templates"></a>
-            <a href="themes/css/#" name="simplex"><img src="themes/switch/images/clr/simplex.png" alt="bootstrap business templates"></a>
-            <a href="themes/css/#" name="slate"><img src="themes/switch/images/clr/slate.png" alt="bootstrap business templates"></a>
-            <a href="themes/css/#" name="spacelab"><img src="themes/switch/images/clr/spacelab.png" alt="bootstrap business templates"></a>
-            <a href="themes/css/#" name="united"><img src="themes/switch/images/clr/united.png" alt="bootstrap business templates"></a>
-            <p style="margin:0;line-height:normal;margin-left:-10px;display:none;"><small>These are just examples and you can build your own color scheme in the backend.</small></p>
-        </div>
-        <div class="themeName">Background Patterns </div>
-        <div class="images patterns">
-            <a href="themes/css/#" name="pattern1"><img src="themes/switch/images/pattern/pattern1.png" alt="bootstrap business templates" class="active"></a>
-            <a href="themes/css/#" name="pattern2"><img src="themes/switch/images/pattern/pattern2.png" alt="bootstrap business templates"></a>
-            <a href="themes/css/#" name="pattern3"><img src="themes/switch/images/pattern/pattern3.png" alt="bootstrap business templates"></a>
-            <a href="themes/css/#" name="pattern4"><img src="themes/switch/images/pattern/pattern4.png" alt="bootstrap business templates"></a>
-            <a href="themes/css/#" name="pattern5"><img src="themes/switch/images/pattern/pattern5.png" alt="bootstrap business templates"></a>
-            <a href="themes/css/#" name="pattern6"><img src="themes/switch/images/pattern/pattern6.png" alt="bootstrap business templates"></a>
-            <a href="themes/css/#" name="pattern7"><img src="themes/switch/images/pattern/pattern7.png" alt="bootstrap business templates"></a>
-            <a href="themes/css/#" name="pattern8"><img src="themes/switch/images/pattern/pattern8.png" alt="bootstrap business templates"></a>
-            <a href="themes/css/#" name="pattern9"><img src="themes/switch/images/pattern/pattern9.png" alt="bootstrap business templates"></a>
-            <a href="themes/css/#" name="pattern10"><img src="themes/switch/images/pattern/pattern10.png" alt="bootstrap business templates"></a>
-
-            <a href="themes/css/#" name="pattern11"><img src="themes/switch/images/pattern/pattern11.png" alt="bootstrap business templates"></a>
-            <a href="themes/css/#" name="pattern12"><img src="themes/switch/images/pattern/pattern12.png" alt="bootstrap business templates"></a>
-            <a href="themes/css/#" name="pattern13"><img src="themes/switch/images/pattern/pattern13.png" alt="bootstrap business templates"></a>
-            <a href="themes/css/#" name="pattern14"><img src="themes/switch/images/pattern/pattern14.png" alt="bootstrap business templates"></a>
-            <a href="themes/css/#" name="pattern15"><img src="themes/switch/images/pattern/pattern15.png" alt="bootstrap business templates"></a>
-
-            <a href="themes/css/#" name="pattern16"><img src="themes/switch/images/pattern/pattern16.png" alt="bootstrap business templates"></a>
-            <a href="themes/css/#" name="pattern17"><img src="themes/switch/images/pattern/pattern17.png" alt="bootstrap business templates"></a>
-            <a href="themes/css/#" name="pattern18"><img src="themes/switch/images/pattern/pattern18.png" alt="bootstrap business templates"></a>
-            <a href="themes/css/#" name="pattern19"><img src="themes/switch/images/pattern/pattern19.png" alt="bootstrap business templates"></a>
-            <a href="themes/css/#" name="pattern20"><img src="themes/switch/images/pattern/pattern20.png" alt="bootstrap business templates"></a>
-
         </div>
     </div>
-</div>
-<span id="themesBtn"></span>
+    <div class="copyright">
+        <div class="container">
+            <div class="copyright-inner border-top">
+                <div class="row">
+                    <div class="col-lg-6 col-12">
+                        <div class="left">
+                            <p>Copyright © 2021 <a href="http://indokoding.net" target="_blank">IndoKoding.net</a> -
+                                All Rights Reserved.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <div class="right pull-right">
+                            <ul class="payment-cards">
+                                <li><i class="fa fa-cc-paypal"></i></li>
+                                <li><i class="fa fa-cc-amex"></i></li>
+                                <li><i class="fa fa-cc-mastercard"></i></li>
+                                <li><i class="fa fa-cc-stripe"></i></li>
+                                <li><i class="fa fa-cc-visa"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Core -->
+<script src="./assets/js/core/jquery.min.js"></script>
+<script src="./assets/js/core/popper.min.js"></script>
+<script src="./assets/js/core/bootstrap.min.js"></script>
+<script src="./assets/js/core/jquery-ui.min.js"></script>
+
+<!-- Optional plugins -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<!-- Argon JS -->
+<script src="./assets/js/argon-design-system.js"></script>
+
+<!-- Main JS-->
+<script src="./assets/js/main.js"></script>
 </body>
 </html>

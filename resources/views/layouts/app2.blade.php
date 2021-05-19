@@ -46,9 +46,43 @@
                 </div>
                 <div class="col-6 text-right">
                     <ul class="top-links account-links">
-                        <li><i class="fa fa-user-circle-o"></i> <a href="#">My Account</a></li>
-                        <li><i class="fa fa-power-off"></i> <a href="#">Login</a></li>
+                        <li><a href="#">SRB</a></li>
+                        <li class="mr-5"><a href="#">ENG</a></li>
+{{--                        <li><i class="fa fa-user-circle-o"></i> <a href="#">Registruj se</a></li>--}}
+{{--                        <li><i class="fa fa-power-off"></i> <a href="#">Uloguj se</a></li>--}}
+                        @guest
+                            @if (Route::has('login'))
+                                <li>
+                                    <i class="fa fa-user-circle-o"></i> <a href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </li>
+                            @endif
+
+                            @if (Route::has('register'))
+                                <li>
+                                    <i class="fa fa-user-circle-o"></i> <a href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
                     </ul>
+
                 </div>
             </div>
         </div>
@@ -57,8 +91,8 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-3 col-12 col-sm-6">
-                    <a class="navbar-brand mr-lg-5" href="./index.html">
-                        <i class="fa fa-shopping-bag fa-3x"></i> <span class="logo">IndoMarket</span>
+                    <a class="navbar-brand mr-lg-5" href="/">
+                        <i class="fa fa-shopping-bag fa-3x"></i> <span class="logo">Online Market</span>
                     </a>
                 </div>
                 <div class="col-lg-7 col-12 col-sm-6">
@@ -99,7 +133,7 @@
             <div class="collapse navbar-collapse" id="main_nav">
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="{{ url('/') }}">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">About</a>
@@ -114,6 +148,7 @@
                         </div>
                     </li>
                 </ul>
+                <span><a class="btn btn-primary" href="{{ url('/novi-oglas') }}">Postavite nov oglas</a></span>
             </div> <!-- collapse .// -->
         </div> <!-- container .// -->
     </nav>
@@ -134,7 +169,7 @@
                     <!-- Single Widget -->
                     <div class="single-footer about">
                         <div class="logo-footer">
-                            <i class="fa fa-shopping-bag fa-3x"></i> <span class="logo">IndoMarket</span>
+                            <i class="fa fa-shopping-bag fa-3x"></i> <span class="logo">Market</span>
                         </div>
                         <p class="text">Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, magna
                             eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor,

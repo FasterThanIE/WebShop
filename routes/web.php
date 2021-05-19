@@ -17,9 +17,25 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/novi-oglas', function () {
+    return view('novi-oglas');
+});
+
+
+Route::get('/admin', function () {
+    return view('admin/home-admin');
+});
+
+
+
+
 Route::get('/product-details', function () {
     return view('product-details');
 });
+
+
+
+
 
 Auth::routes();
 

@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Bootshop online Shopping cart</title>
+    <title>Online market</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -98,7 +98,7 @@
                 <div class="col-lg-7 col-12 col-sm-6">
                     <form action="#" class="search">
                         <div class="input-group w-100">
-                            <input type="text" class="form-control" placeholder="Search">
+                            <input type="text" class="form-control" placeholder="Pretražite po imenu ili šifri">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="submit">
                                     <i class="fa fa-search"></i>
@@ -133,19 +133,31 @@
             <div class="collapse navbar-collapse" id="main_nav">
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="{{ url('/') }}">Home</a>
+                        <a class="nav-link" href="{{ url('/') }}">Pocetna</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="#">O nama</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="true">Pages</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="products.html">Products</a>
-                            <a class="dropdown-item" href="product-detail.html">Product Detail</a>
-                            <a class="dropdown-item" href="cart.html">Cart</a>
-                            <a class="dropdown-item" href="checkout.html">Checkout</a>
-                        </div>
+{{--                    <li class="nav-item dropdown">--}}
+{{--                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="true">Pages</a>--}}
+{{--                        <div class="dropdown-menu">--}}
+{{--                            <a class="dropdown-item" href="products.html">Products</a>--}}
+{{--                            <a class="dropdown-item" href="product-detail.html">Product Detail</a>--}}
+{{--                            <a class="dropdown-item" href="cart.html">Cart</a>--}}
+{{--                            <a class="dropdown-item" href="checkout.html">Checkout</a>--}}
+{{--                        </div>--}}
+{{--                    </li>--}}
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Proizvodi</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Česta pitanja</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Kontakt</a>
                     </li>
                 </ul>
                 <span><a class="btn btn-primary" href="{{ url('/novi-oglas') }}">Postavite nov oglas</a></span>

@@ -38,7 +38,7 @@
                     <div class="product-detail">
                         <h2 class="product-name">Casual Shirt With Ruffle Hem</h2>
                         <div class="product-price">
-                            <span class="price">IDR 299.000</span><span class="price-muted">IDR 499.000</span>
+                            <span class="price">Cena: 299, 00</span>
                         </div>
                         <div class="product-short-desc">
                             <p>Compact sport shoe for running, consectetur adipisicing elit, sed do eiusmod
@@ -48,41 +48,84 @@
                                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                                 consequat
                                 </p>
-                            <p>Compact sport shoe for running, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat. Duis aute irure dolor. Ut enim ad minim veniam,
-                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat
-                                </p>
+
                         </div>
-                        <div class="product-select">
-                            <form>
-                                <div class="form-group">
-                                    <label>Size</label>
-                                    <select class="form-control">
-                                        <option>-- Size --</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Color</label>
-                                    <select class="form-control">
-                                        <option>-- Color --</option>
-                                    </select>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <input type="number" class="form-control" value="1"/>
+                        <h4>Prodavac: <a href="#">Dusan</a> </h4>
+                        <p>Mesto: Beograd</p>
+                        <a href="#">Pogledajte sve oglase oglasivaca</a><br><br>
+                        <a data-toggle="modal" data-target="#modalContactForm" class="btn btn-dark" href="#">Pošaljite poruku</a><br><br>
+
+{{--                        modal for messeging--}}
+                        <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                             aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header text-center">
+                                        <h4 class="modal-title w-100 font-weight-bold">Kontaktirajte prodavca</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
                                     </div>
-                                    <div class="col-md-5">
-                                        <button type="button" class="btn btn-primary btn-block">Add to Cart</button>
+                                    <div class="modal-body mx-3">
+                                        <div class="md-form">
+                                            <i class=""></i>
+                                            <input type="text" id="form34" class="form-control validate">
+                                            <label data-error="wrong" data-success="right" for="form34">Your name</label>
+                                        </div>
+
+                                        <div class="md-form">
+                                            <i class=""></i>
+                                            <input type="email" id="form29" class="form-control validate">
+                                            <label data-error="wrong" data-success="right" for="form29">Your email</label>
+                                        </div>
+
+                                        <div class="md-form">
+                                            <i class=""></i>
+                                            <input type="text" id="form32" class="form-control validate">
+                                            <label data-error="wrong" data-success="right" for="form32">Subject</label>
+                                        </div>
+
+                                        <div class="md-form">
+                                            <i class="fa fa-pencil"></i>
+                                            <textarea type="text" id="form8" class="md-textarea form-control" rows="4"></textarea>
+                                            <label data-error="wrong" data-success="right" for="form8">Your message</label>
+                                        </div>
+
                                     </div>
-                                    <div class="col-md-4">
-                                        <a href="#" class="btn btn-secondary"><i class="fa fa-heart-o"></i></a>
+                                    <div class="modal-footer d-flex justify-content-center">
+                                        <button class="btn btn-outline-dark">Send</button>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
                         </div>
+
+{{--                        <div class="product-select">--}}
+{{--                            <form>--}}
+{{--                                <div class="form-group">--}}
+{{--                                    <label>Size</label>--}}
+{{--                                    <select class="form-control">--}}
+{{--                                        <option>-- Size --</option>--}}
+{{--                                    </select>--}}
+{{--                                </div>--}}
+{{--                                <div class="form-group">--}}
+{{--                                    <label>Color</label>--}}
+{{--                                    <select class="form-control">--}}
+{{--                                        <option>-- Color --</option>--}}
+{{--                                    </select>--}}
+{{--                                </div>--}}
+{{--                                <div class="row">--}}
+{{--                                    <div class="col-md-3">--}}
+{{--                                        <input type="number" class="form-control" value="1"/>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="col-md-5">--}}
+{{--                                        <button type="button" class="btn btn-primary btn-block">Add to Cart</button>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="col-md-4">--}}
+{{--                                        <a href="#" class="btn btn-secondary"><i class="fa fa-heart-o"></i></a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </form>--}}
+{{--                        </div>--}}
                         <div class="product-categories">
                             <ul>
                                 <li class="categories-title">Categories :</li>

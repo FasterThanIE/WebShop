@@ -96,7 +96,7 @@
                     </a>
                 </div>
                 <div class="col-lg-7 col-12 col-sm-6">
-                    <form action="#" class="search">
+                    <form action="{{ url('/search') }}" method="GET" class="search">
                         <div class="input-group w-100">
                             <input type="text" class="form-control" placeholder="Pretražite po imenu ili šifri">
                             <div class="input-group-append">
@@ -157,7 +157,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Kontakt</a>
+                        <a class="nav-link" href="/contact">Kontakt</a>
                     </li>
                 </ul>
                 <span><a class="btn btn-primary" href="{{ url('/novi-oglas') }}">Postavite nov oglas</a></span>

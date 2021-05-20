@@ -27,6 +27,10 @@ Route::get('/novi-oglas', function () {
     return view('novi-oglas');
 });
 
+Route::get('/search', function () {
+    return view('search');
+});
+
 
 Route::get('/admin', function () {
     return view('admin/home-admin');

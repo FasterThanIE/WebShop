@@ -4,97 +4,53 @@
 
 
     <h2 class="text-center">Napravite vas oglas</h2>
-<div class="container border rounded p-2">
+<div class="container border border-dark rounded p-2">
 
 
     <form class="p-5" style="margin:auto;" action="SubjectController.php" method="post" enctype="multipart/form-data">
 
-        <label for="name">Kategorija</label>
-        <input class="form-control w-50" type="text" name="kategorija"><br>
-
-        <label for="name">Naziv oglasa</label>
-        <input class="form-control w-50" type="text" name="name"><br>
-
-
-        <p class=""><b>Opis predmeta</b></p>
-        <textarea class="form-control w-75 m-auto " name="description" cols="20" rows="5"></textarea><br>
-
-
-        <b><p class="">Slika predmeta</p></b>
-        <input type="file" name="image" class="form-control  w-50"><br><br>
-
         <div>
-            <b><p>Odredite kategoriju predmeta</p></b>
+            <b><p>Kategorija predmeta</p></b>
+
             <select name="category" class="selekt form-control mb-3"><br>
-                <option value="0">Izaberite ovde</option>
+                <option value="0">-- Izaberite ovde --</option>
+                <option value="0">Telefoni</option>
+                <option value="0">Televizori</option>
+                <option value="0">Laptopovi</option>
 
             </select>
-
         </div>
-        <br><br>
+        <hr>
+        <label for="name">Naziv predmeta</label>
+        <input class="form-control w-50" type="text" name="name" placeholder="Upisite naziv predmeta"><br>
+        <hr>
+        <label for="name">Stanje predmeta</label><br>
+        <input class="" type="radio" name="name"> Novo<br>
+        <input class="" type="radio" name="name"> Polovno<br>
+        <input class="" type="radio" name="name"> Neispravno<br><br>
 
-        <h5>Nacin placanja i dostave</h5><br>
+        <hr>
 
+        <p class=""><b>Opis predmeta</b></p>
+        <textarea class="form-control w-75 m-auto " name="description" cols="20" rows="5">Upisite opis predmeta...</textarea><br>
 
-        <div style="margin:auto;" class="row text-center">
+        <hr>
+        <b><p class="">Slike predmeta</p></b>
+        <input type="file" name="image" class="form-control  w-50"><br><br>
 
-            <div class="col-5">
+        <hr>
+        <label class="mb-2 font-weight-bold">Cena</label>
+        <input class="form-control mb-3" type="number" name="price" placeholder="Unesite cenu"><br>
 
-                <b><p>Nacin placanja</p></b>
-                <input type="checkbox" name="payment[]" value="Tekuci racun(pre slanja)" class="form-check-input">
-                <label for="">Tekuci racun(pre slanja)</label><br>
-                <input type="checkbox" name="payment[]" value="PostNet(pre slanja)"  class="form-check-input">
-                <label for="">postNet(pre slanja)</label><br>
-                <input type="checkbox" name="payment[]" value="Pouzecem" class="form-check-input">
-                <label for="">Pouzecem</label><br>
-                <input type="checkbox" name="payment[]" value="Licno" class="form-check-input">
-                <label for="">Licno</label><br>
+        <hr>
+        <input type="checkbox" name="" value=""> Prihvatam pravila i uslove oglasavanja platforme MARKET <br><br>
 
-
-            </div>
-
-            <div class="col-5 text-center">
-
-                <b><p>Nacin isporuke</p></b>
-                <input type="checkbox" name="delivery[]" value="AKS" class="form-check-input">
-                <label for="">AKS</label><br>
-                <input type="checkbox" name="delivery[]" value="BEKS"  class="form-check-input">
-                <label for="">BEKS</label><br>
-                <input type="checkbox" name="delivery[]" value="City Express" class="form-check-input">
-                <label for="">City Express</label><br>
-                <input type="checkbox" name="delivery[]" value="Posta" class="form-check-input">
-                <label for="">Posta</label><br>
-
-            </div>
-
-
-        </div>
-        <br><br>
-
-        <h5 class="text-center">Postavi aukciju</h5><br>
-
-        <div class="row w-75 m-auto">
-
-            <div class="col-sm-5">
-                <label class="mb-2 font-weight-bold">Pocetna cena</label>
-                <input class="form-control mb-3" type="number" name="starting_price" placeholder="Unesite cenu">
-
-            </div>
-
-            <div class="col-sm-5">
-                <b> <label>Trajanje aukcije</label></b>
-                <input type="date" value="" name="duration" class=" form-control m-auto">
-
-            </div>
-
-
-        </div>
-        <br><br>
-
-        <div class="text-center "><input type="submit" name="create" value="POKRENI" class="btn btn-success btn-lg  mb-3"></div>
+        <hr>
+        <div class="text-center "><input type="submit" name="create" value="UNESITE OGLAS" class="btn btn-success btn-lg mb-3"></div>
 
 
     </form>
+
 
 </div>
 

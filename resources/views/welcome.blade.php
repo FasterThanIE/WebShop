@@ -130,7 +130,7 @@
                 <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                     <div class="single-product">
                         <div class="product-img">
-                            <a href="product-detail.html">
+                            <a href="{{url('/product-details')}}">
                                 <img src="./assets/img/products/p2.jpg" class="img-fluid" />
                             </a>
                         </div>
@@ -145,7 +145,7 @@
                 <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                     <div class="single-product">
                         <div class="product-img">
-                            <a href="product-detail.html">
+                            <a href="{{url('/product-details')}}">
                                 <img src="./assets/img/products/p3.jpg" class="img-fluid" />
                             </a>
                         </div>
@@ -160,7 +160,7 @@
                 <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                     <div class="single-product">
                         <div class="product-img">
-                            <a href="product-detail.html">
+                            <a href="{{url('/product-details')}}">
                                 <img src="./assets/img/products/p4.jpg" class="img-fluid" />
                             </a>
                         </div>

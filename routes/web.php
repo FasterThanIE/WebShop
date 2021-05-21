@@ -29,6 +29,7 @@ Route::get('/admin', function () {
 })->name('home-admin');
 
 
+Route::get('/admin/categories', 'App\Http\Controllers\CategoryController@index')->name('admin-categories');
 
 
 Route::get('/product-details', function () {

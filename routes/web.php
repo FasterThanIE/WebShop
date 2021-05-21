@@ -18,18 +18,17 @@ Route::view('/', 'welcome')->name('home');
 Route::view('/contact', 'contact')->name('contact');
 
 
-Route::get('/novi-oglas', function () {
-    return view('novi-oglas');
-});
+Route::view('/novi-oglas', 'novi-oglas')->name('novi-oglas');
+
 
 Route::get('/search', function () {
     return view('search');
-});
+})->name('search');
 
 
 Route::get('/admin', function () {
     return view('admin/home-admin');
-});
+})->name('home-admin');
 
 
 

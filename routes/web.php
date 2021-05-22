@@ -28,6 +28,7 @@ Route::view('/contact', 'contact')->name('contact');
 
 
 Route::get('/novi-oglas', 'App\Http\Controllers\ProductController@index')->name('novi-oglas.index');
+Route::post('/novi-oglas', 'App\Http\Controllers\ProductController@store')->name('novi-oglas.store');
 
 
 Route::get('/admin/categories', 'App\Http\Controllers\CategoryController@index')->name('admin-categories');

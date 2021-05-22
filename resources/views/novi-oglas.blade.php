@@ -11,12 +11,14 @@
 
         <div>
 
-            <label for="category">Kategorija</label>
+            <label for="category">Kategorije</label>
             <select name="category" class="selekt form-control mb-3"><br>
                 <option value="0">-- Izaberite ovde --</option>
-                <option value="0">Telefoni</option>
-                <option value="0">Televizori</option>
-                <option value="0">Laptopovi</option>
+                @foreach($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+
+                @endforeach
+
             </select>
         </div>
         <hr>

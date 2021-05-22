@@ -13,23 +13,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+
+
 
 Route::view('/', 'welcome')->name('home');
 Route::view('/contact', 'contact')->name('contact');
-Route::view('/novi-oglas', 'novi-oglas')->name('novi-oglas');
 
 
-Route::get('/search', function () {
-    return view('search');
-})->name('search');
 
-
-Route::get('/admin', function () {
-    return view('admin/home-admin');
-})->name('home-admin');
+Route::get('/novi-oglas', 'App\Http\Controllers\ProductController@index')->name('novi-oglas.index');
 
 
 Route::get('/admin/categories', 'App\Http\Controllers\CategoryController@index')->name('admin-categories');
+Route::post('/admin/categories/post', 'App\Http\Controllers\CategoryController@store')->name('admin-categories-post');
+
+Route::get('/admin/categories/edit', 'App\Http\Controllers\CategoryController@edit')->name('admin-categories-edit');
+Route::get('/admin/categories/update', 'App\Http\Controllers\CategoryController@update')->name('admin-categories-update');
+
 
 
 Route::get('/product-details', function () {
@@ -40,6 +46,19 @@ Route::get('/product-details', function () {
 
 
 
-Auth::routes();
+Route::get('/search', function () {
+    return view('search');
+})->name('search');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/admin', function () {
+
+    if(isset(auth()->user()->is_admin) and (auth()->user()->is_admin)  == 2){
+        return view('admin/home-admin');
+    }else{
+        return view('welcome');
+
+    }
+})->name('home-admin');
+
+

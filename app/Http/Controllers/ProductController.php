@@ -2,12 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ValidateNewAdRequest;
 use App\Models\Category;
 use App\Models\Product;
-use Illuminate\Http\Request;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 
 class ProductController extends Controller
 {
+    /**
+     * @return Application|Factory|View
+     */
     public function index()
     {
         $categories = Category::all();
@@ -15,19 +21,12 @@ class ProductController extends Controller
         return view('novi-oglas', ['categories' => $categories]);
     }
 
-    public function store(Request $request)
+    /**
+     * @param ValidateNewAdRequest $request
+     * return null
+     */
+    public function store(ValidateNewAdRequest $request)
     {
-        $request->validate([
-            'kategorija' => 'required|not_in:0',
-            'naziv' => 'required',
-            'stanje' => 'required',
-            'opis' => 'required',
-            'slike' => 'required',
-            'cena' => 'required',
-            'pravila' => 'required_without_all'
-        ]);
-
-
         if($request->hasfile('slike')){
 
             foreach ($request->file('slike') as $image){

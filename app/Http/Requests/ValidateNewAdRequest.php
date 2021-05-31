@@ -37,7 +37,13 @@ class ValidateNewAdRequest extends FormRequest
     public function messages()
     {
         return [
-            'kategorija.required' => "Kategorija je obavezno polje"
+            'kategorija.required' => "Kategorija je obavezno polje",
+            'naziv.required' => "Naziv je obavezno polje",
+            'stanje.required' => "Stanje je obavezno polje",
+            'opis.required' => "Opis je obavezno polje",
+            'slike.required' => "Slike su obavezno polje",
+            'cena.required' => "Cena je obavezno polje",
+            'pravila.required' => "Pravila su obavezno polje"
         ];
     }
 }

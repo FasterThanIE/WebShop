@@ -9,45 +9,52 @@
                 <div class="row">
                     <div class="col-md-3">
                         <nav class="nav-category">
-                            <h2>Categories</h2>
+                            <h2>Kategorije</h2>
                             <ul class="menu-category">
-                                <li><a href="#">Fashions</a></li>
-                                <li><a href="#">Electronics</a></li>
-                                <li><a href="#">Home and Kitchen</a></li>
-                                <li><a href="#">Baby and Toys</a></li>
-                                <li><a href="#">Sports</a></li>
-                                <li><a href="#">Digital Goods</a></li>
+                                @foreach($categories as $category)
+
+                                <li><a href="#">{{ $category->name }}</a></li>
+
+                                @endforeach
                             </ul>
                         </nav>
                     </div>
                     <div class="col-md-9">
-                        <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                            </ol>
-                            <div class="carousel-inner shadow-sm rounded">
-                                <div class="carousel-item active">
-                                    <img class="d-block w-100" src="./assets/img/slides/slide1.jpg" alt="First slide">
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <h5>Mountains, Nature Collection</h5>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="./assets/img/slides/slide2.jpg" alt="Second slide">
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <h5>Freedom, Sea Collection</h5>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="./assets/img/slides/slide3.jpg" alt="Third slide">
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <h5>Living the Dream, Lost Island</h5>
-                                    </div>
-                                </div>
+
+                        <div class="row">
+                            @foreach($users as $user)
+                            <div class="col-12 col-sm-3 col-md-3 col-lg-3">
+                                <a href="{{ route('profile.show', $user->uri) }}"><h3>{{ $user->name }}</h3></a>
                             </div>
+                            @endforeach
                         </div>
+{{--                        <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">--}}
+{{--                            <ol class="carousel-indicators">--}}
+{{--                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>--}}
+{{--                                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>--}}
+{{--                                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>--}}
+{{--                            </ol>--}}
+{{--                            <div class="carousel-inner shadow-sm rounded">--}}
+{{--                                <div class="carousel-item active">--}}
+{{--                                    <img class="d-block w-100" src="./assets/img/slides/slide1.jpg" alt="First slide">--}}
+{{--                                    <div class="carousel-caption d-none d-md-block">--}}
+{{--                                        <h5>Mountains, Nature Collection</h5>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="carousel-item">--}}
+{{--                                    <img class="d-block w-100" src="./assets/img/slides/slide2.jpg" alt="Second slide">--}}
+{{--                                    <div class="carousel-caption d-none d-md-block">--}}
+{{--                                        <h5>Freedom, Sea Collection</h5>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="carousel-item">--}}
+{{--                                    <img class="d-block w-100" src="./assets/img/slides/slide3.jpg" alt="Third slide">--}}
+{{--                                    <div class="carousel-caption d-none d-md-block">--}}
+{{--                                        <h5>Living the Dream, Lost Island</h5>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                         <!-- End Slider -->
                     </div>
                 </div>

@@ -19,13 +19,17 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 
+Route::get('/', 'App\Http\Controllers\UserController@index')->name('welcome');
+
+Route::get('profil/{uri}', 'App\Http\Controllers\UserController@show')->name('profile.show');
 
 
 
-Route::view('/', 'welcome')->name('home');
+//ovde ide moj profil za menjanje itd
+
+
+
 Route::view('/contact', 'contact')->name('contact');
-
-
 
 Route::get('/novi-oglas', 'App\Http\Controllers\ProductController@index')->name('novi-oglas.index');
 Route::post('/novi-oglas', 'App\Http\Controllers\ProductController@store')->name('novi-oglas.store');

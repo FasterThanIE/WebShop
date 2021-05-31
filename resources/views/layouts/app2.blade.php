@@ -16,17 +16,18 @@
         rel="stylesheet">
 
     <!-- Icons -->
-    <link href="./assets/css/nucleo-icons.css" rel="stylesheet">
-    <link href="./assets/css/font-awesome.css" rel="stylesheet">
+    <link href="../assets/css/nucleo-icons.css" rel="stylesheet">
+    <link href="../assets/css/font-awesome.css" rel="stylesheet">
 
     <!-- Jquery UI -->
-    <link type="text/css" href="./assets/css/jquery-ui.css" rel="stylesheet">
+    <link type="text/css" href="../assets/css/jquery-ui.css" rel="stylesheet">
 
     <!-- Argon CSS -->
-    <link type="text/css" href="./assets/css/argon-design-system.min.css" rel="stylesheet">
+    <link type="text/css" href="../assets/css/argon-design-system.min.css" rel="stylesheet">
 
     <!-- Main CSS-->
-    <link type="text/css" href="./assets/css/style.css" rel="stylesheet">
+    <link type="text/css" href="../assets/css/style.css" rel="stylesheet">
+{{--    <link type="text/css" href="./assets/css/profile_styles.css" rel="stylesheet">--}}
 
     <!-- Optional Plugins-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
@@ -272,18 +273,18 @@
     </div>
 </footer>
 <!-- Core -->
-<script src="./assets/js/core/jquery.min.js"></script>
-<script src="./assets/js/core/popper.min.js"></script>
-<script src="./assets/js/core/bootstrap.min.js"></script>
-<script src="./assets/js/core/jquery-ui.min.js"></script>
+<script src="../assets/js/core/jquery.min.js"></script>
+<script src="../assets/js/core/popper.min.js"></script>
+<script src="../assets/js/core/bootstrap.min.js"></script>
+<script src="../assets/js/core/jquery-ui.min.js"></script>
 
 <!-- Optional plugins -->
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 <!-- Argon JS -->
-<script src="./assets/js/argon-design-system.js"></script>
+<script src="../assets/js/argon-design-system.js"></script>
 
 <!-- Main JS-->
-<script src="./assets/js/main.js"></script>
+<script src="../assets/js/main.js"></script>
 </body>
 </html>

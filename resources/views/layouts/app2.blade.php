@@ -33,6 +33,19 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
 
+
+
+      <!-- login plugin template-->
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="../images/icons/favicon.ico"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--==============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../css/util.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <!-- End login template -->
+
+
 </head>
 <body>
 <header class="header clearfix">
@@ -160,6 +173,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/contact">Kontakt</a>
                     </li>
+
+                    @if(isset(Auth::user()->name))
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('myProfile.show', Auth::user()->uri) }}"><b>Moj profil</b></a>
+                    </li>
+                    @endif
                 </ul>
                 <span><a class="btn btn-primary" href="{{ url('/novi-oglas') }}">Postavite nov oglas</a></span>
             </div> <!-- collapse .// -->
@@ -167,6 +186,11 @@
     </nav>
 </header>
 
+@if (session('status'))
+    <div class="alert alert-success text-center">
+        {{ session('status') }}
+    </div>
+@endif
 
 <main class="py-4">
     @yield('content')
@@ -286,5 +310,9 @@
 
 <!-- Main JS-->
 <script src="../assets/js/main.js"></script>
+
+
+{{--// This is login, register and edit user  template--}}
+<script src="../../js/main.js"></script>
 </body>
 </html>

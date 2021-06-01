@@ -22,10 +22,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/', 'App\Http\Controllers\UserController@index')->name('welcome');
 
 Route::get('profil/{uri}', 'App\Http\Controllers\UserController@show')->name('profile.show');
+Route::get('moj-profil/{uri}', 'App\Http\Controllers\UserController@myProfileShow')->name('myProfile.show');
 
+Route::get('izmeni-profil/{id}', 'App\Http\Controllers\UserController@edit')->name('profile.edit');
+Route::post('izmeni-profil', 'App\Http\Controllers\UserController@update')->name('profile.update');
 
-
-//ovde ide moj profil za menjanje itd
 
 
 

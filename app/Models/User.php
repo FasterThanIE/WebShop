@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
+use App\Models\UserInformation;
 
 class User extends Authenticatable
 {
@@ -41,6 +43,11 @@ class User extends Authenticatable
     public function products()
     {
         return $this->hasMany(Product::class);
+    }
+
+    public function userInfo()
+    {
+        return $this->hasOne(UserInformation::class);
     }
 
 
@@ -79,4 +86,50 @@ class User extends Authenticatable
         }
 
     }
+
+    /**
+     * @param int $id
+     * @param string $name
+     * @param string $email
+
+     * @return User Ova funkcija updatuje usera
+     * Ova funkcija updatuje usera
+     */
+
+    public static function updateUser(int $id, string $name, string $email)
+
+    {
+         return User::where('id', $id)
+                     ->update([
+                         'name' => $name,
+                         'email' => $email,
+                     ]);
+
+    }
+
+
+    /**
+     * @param int $id
+     * @param string $city
+     * @param string $address
+     * @param string $state
+     * @param string $number
+     * @return mixed
+     * @return UserInformation
+     * Ova funkcija udatuje userove vece informacije
+     */
+
+    public static function updateUserInfo(int $id, string $city, string $address, string $state, string $number)
+
+    {
+       return UserInformation::where('user_id', $id)
+            ->update([
+                'address' => $address,
+                'city' => $city,
+                'state' => $state,
+                'mobile_number' => $number,
+            ]);
+    }
+
+
 }

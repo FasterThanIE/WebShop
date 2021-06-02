@@ -22,11 +22,16 @@
                     <div class="col-md-9">
 
                         <div class="row">
-                            @foreach($users as $user)
-                            <div class="col-12 col-sm-3 col-md-3 col-lg-3">
-                                <a href="{{ route('profile.show', $user->uri) }}"><h3>{{ $user->name }}</h3></a>
-                            </div>
-                            @endforeach
+                                @foreach($users as $user)
+                                    @if($user instanceof \App\Models\User)
+
+                                    <div class="col-12 col-sm-3 col-md-3 col-lg-3">
+                                        <a href="{{ route('profile.show', $user->uri) }}"><h3>{{ $user->name }}</h3></a>
+                                    </div>
+                                    @endif
+
+                                @endforeach
+
                         </div>
 {{--                        <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">--}}
 {{--                            <ol class="carousel-indicators">--}}

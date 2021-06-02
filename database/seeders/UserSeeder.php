@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
+use App\Models\UserInformation;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -16,19 +18,14 @@ class UserSeeder extends Seeder
     {
         $faker = \Faker\Factory::create();
 
-        for($i = 0; $i <= 100; $i++){
+        for($i = 0; $i <= 5; $i++){
 
             $uri = $faker->name();
-        DB::table('users')
-            ->insert([
-                'name' => $uri,
-                'email' => $faker->email,
-                'uri' => str_replace(' ', '-', $uri),
-                'password' => $faker->password(),
-                'created_at' => \Carbon\Carbon::now(),
-                'updated_at' => \Carbon\Carbon::now()
-            ]);
+
+           User::userSeeder($uri, $faker);
 
         }
+
     }
+
 }

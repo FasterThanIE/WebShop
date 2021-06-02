@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\UserInformation;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Validator;
@@ -48,11 +49,18 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'city' => ['required'],
+            'address' => ['required'],
+            'state' => ['required'],
+            'mobile_number' => ['required'],
+            'password' => ['required'],
         ]);
+
+
     }
 
     /**
@@ -63,7 +71,13 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $user = User::uriExist($data);
+        $user_info = UserInformation::uriExist($data, $user->id);
 
-        return User::uriExist($data);
+        $array = [$user, $user_info];
+
+        foreach ($array as $value){
+            return $value;
+        }
     }
 }

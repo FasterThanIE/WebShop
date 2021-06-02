@@ -54,6 +54,6 @@ class ProductController extends Controller
 
         }
 
-        dd('ubaceno');
+        return redirect('/')->with('status', 'Uspesno ste uneli oglas!');
     }
 }

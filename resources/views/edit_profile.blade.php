@@ -32,7 +32,6 @@
                                     <p class="text-muted font-size-sm d-inline-block"> {{ $user->userInfo->address }} </p><br>
                                     <p class="text-muted font-size-sm d-inline-block"> {{ $user->userInfo->mobile_number }} </p>
                                     <br>
-                                    <a href="{{ route('profile.edit', $user) }}" class="font-weight-300 text-danger btn btn-info">Izmeni svoje podatke</a>
                                     {{--                                    <button class="btn btn-primary">Follow</button>--}}
                                     {{--                                    <button class="btn btn-outline-primary">Message</button>--}}
                                 </div>
@@ -74,8 +73,6 @@
 
                                         <form action="{{ route('profile.update') }}" method="POST" class="login100-form validate-form flex-sb flex-w">
                                             @csrf
-
-                                            <input type="hidden" name="user_id" value=" {{ $user->id }}">
 
                                             <span class="login100-form-title p-b-32">
                                                 Izmenite podatke

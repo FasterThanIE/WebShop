@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use App\Models\UserInformation;
 
 class User extends Authenticatable
@@ -63,10 +63,10 @@ class User extends Authenticatable
     {
         $uri_replace = str_replace(' ', '-', $data['name']);
 
-        $uri = User::select('id')->where('uri', $uri_replace)->first();
+        $uri = User::findUserByUri($uri_replace);
 
 
-        if($uri == null){
+        if(!$uri instanceof User){
 
             return User::create([
                 'name' => $data['name'],
@@ -85,6 +85,8 @@ class User extends Authenticatable
 
         }
 
+
+
     }
 
     /**
@@ -99,11 +101,10 @@ class User extends Authenticatable
     public static function updateUser(int $id, string $name, string $email)
 
     {
-         return User::where('id', $id)
-                     ->update([
-                         'name' => $name,
-                         'email' => $email,
-                     ]);
+         return User::where('id', $id)->update([
+             'name' => $name,
+             'email' => $email,
+         ]);
 
     }
 
@@ -129,6 +130,36 @@ class User extends Authenticatable
                 'state' => $state,
                 'mobile_number' => $number,
             ]);
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     * Ova funkcija vraca usera po ID-u
+     */
+
+    public static function findUserById($id): ? User
+    {
+        return $user = User::find($id);
+
+    }
+
+    public static function findUserByUri($uri): ? User
+    {
+        return $user_uri = self::where('uri', $uri)->first();
+    }
+
+
+    public static function userSeeder($uri, $faker): ? User
+    {
+        return $user = DB::table('users')->insert([
+            'name' => $uri,
+            'email' => $faker->email,
+            'uri' => str_replace(' ', '-', $uri),
+            'password' => $faker->password(),
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
     }
 
 

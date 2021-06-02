@@ -32,7 +32,7 @@
                                     <p class="text-muted font-size-sm d-inline-block"> {{ $user->userInfo->address }} </p><br>
                                     <p class="text-muted font-size-sm d-inline-block"> {{ $user->userInfo->mobile_number }} </p>
                                     <br>
-                                    <a href="{{ route('profile.edit', $user) }}" class="font-weight-300 text-danger btn btn-info">Izmeni svoje podatke</a>
+                                    <a href="{{ route('profile.edit') }}" class="font-weight-300 text-danger btn btn-info">Izmeni svoje podatke</a>
                                     {{--                                    <button class="btn btn-primary">Follow</button>--}}
 {{--                                    <button class="btn btn-outline-primary">Message</button>--}}
                                 </div>

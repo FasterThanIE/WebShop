@@ -22,28 +22,27 @@ class UserController extends Controller
 
     public function show($user_uri)
     {
-        $user_id = User::select('id')->where('uri', $user_uri)->first();
-//
-        $user = User::find($user_id->id);
-//
-//        $user_products = $user->products;
-//        dd($user);
+        $user = User::findUserByUri($user_uri);
 
-        return view('profile_user', ['user' => $user]);
+        if($user == null){
+            abort(404);
+        }else{
+            return view('profile_user', ['user' => $user]);
+        }
     }
 
     public function myProfileShow($user_uri)
     {
-        $user_id = User::select('id')->where('uri', $user_uri)->first();
-        $user = User::find($user_id->id);
+        $user = User::findUserByUri($user_uri);
+
 
         return view('my_profile', ['user' => $user]);
     }
 
-    public function edit($id)
+    public function edit()
     {
 
-        $user = User::find($id);
+        $user = User::findUserById(auth()->user()->id);
 
         return view('edit_profile', ['user' => $user]);
     }
@@ -56,17 +55,16 @@ class UserController extends Controller
 
     public function update(ValidateUserRequest $request)
     {
-        if(auth()->user()->id == $request->user_id){
 
-            User::updateUser($request->user_id, $request->name, $request->email);
+            $user_id = auth()->user()->id;
 
-            User::updateUserInfo($request->user_id, $request->city, $request->address, $request->state, $request->mobile_number);
+            User::updateUser($user_id, $request->name, $request->email);
+
+            User::updateUserInfo($user_id, $request->city, $request->address, $request->state, $request->mobile_number);
 
 
             return redirect('/')->with('status', 'Profil je izmenjen!');
-        }else{
-            dd('Id nije dobar');
-        }
+
 
     }
 }

@@ -73,13 +73,20 @@
                                         {{ $value->name }}
                                     </div>
                                     <div class="col-sm-5 col-md-5 col-xl-5">
-                                        <a class="text-right btn btn-info">Izmeni</a>
-                                        <a class="text-right btn btn-danger">Obriši</a>
+                                        <a href=" {{ route('product.edit', $value->uri) }}" class="text-right btn btn-info">Izmeni</a>
+
+                                        <form class="d-inline-block" method="POST" action="{{ route('product.destroy', $value->id) }}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger" type="submit">Obriši</button>
+                                        </form>
 
                                     </div>
 
                                     <div class="col-sm-4 col-md-4 col-xl-4 bg-success">
-                                        <img src="{{ $value->images->image }}" alt="">
+                                        @if(isset($value->images[0]->image))
+                                        <img src="{{ $value->images[0]->image }}" alt="">
+                                            @endif
                                     </div>
                                 </div>
                                 <hr>

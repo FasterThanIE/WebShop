@@ -28,6 +28,15 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('izmeni-profil', 'App\Http\Controllers\UserController@edit')->name('profile.edit');
     Route::post('izmeni-profil', 'App\Http\Controllers\UserController@update')->name('profile.update');
 
+
+    Route::get('izmeni-proizvod/{uri}', 'App\Http\Controllers\ProductController@edit')->name('product.edit');
+    Route::post('izmeni-proizvod', 'App\Http\Controllers\ProductController@update')->name('product.update');
+    Route::delete('obrisi-proizvod/{id}', 'App\Http\Controllers\ProductController@destroy')->name('product.destroy');
+
+    Route::post('unesi-sliku', 'App\Http\Controllers\ProductController@storeImage')->name('product-image.store');
+    Route::get('brisi-proizvod-sliku/{id}', 'App\Http\Controllers\ProductController@destroyImage')->name('productImage.destroy');
+
+
     Route::get('/novi-oglas', 'App\Http\Controllers\ProductController@index')->name('novi-oglas.index');
     Route::post('/novi-oglas', 'App\Http\Controllers\ProductController@store')->name('novi-oglas.store');
 

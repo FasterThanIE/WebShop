@@ -26,4 +26,21 @@ class ProductImage extends Model
             'image' => $image,
         ]);
     }
+
+
+
+
+
+
+    /**
+     * @param int $id
+     * @return int
+     */
+    public static function destroyImage(int $id)
+    {
+
+        $image = ProductImage::find($id);
+
+        return $image->delete();
+    }
 }

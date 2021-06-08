@@ -11,10 +11,15 @@ class Product extends Model
 
     protected $guarded = [];
 
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
 
     public function images()
     {
-        return $this->hasOne(ProductImage::class);
+        return $this->hasMany(ProductImage::class);
     }
 
     /**
@@ -56,5 +61,67 @@ class Product extends Model
 
 
     }
+
+
+    /**
+     * @param string $uri
+     * @return Product|null
+     * ova funkcija vraca ceo Proizvod preko njegovog uri-a
+     */
+
+    public static function findProductByUri(string $uri): ?Product
+    {
+        return self::where('uri', $uri)->first();
+    }
+
+
+    /**
+     * @param int $id
+     * @param int $category
+     * @param string $name
+     * @param string $condition
+     * @param string $description
+     * @param string $price
+     * @return mixed
+     */
+    public static function updateProduct(int $id, int $category, string $name,
+                                         string $condition, string $description, string $price)
+
+    {
+        return Product::where('id', $id)
+            ->update([
+                'category_id' => $category,
+                'name' => $name,
+                'product_condition' => $condition,
+                'description' => $description,
+                'price' => $price,
+            ]);
+
+    }
+
+
+    /**
+     * @param int $product_id
+     * @return int
+     */
+    public static function returnedProduct(int $product_id)
+    {
+        return $product_id;
+    }
+
+
+    /**
+     * @param int $id
+     * @return mixed
+     */
+    public static function destroyProduct(int $id)
+    {
+        $product = Product::find($id);
+
+        return $product->delete();
+    }
+
+
+
 
 }

@@ -8,13 +8,13 @@
         <div class="main-body">
 
             <!-- Breadcrumb -->
-            <nav aria-label="breadcrumb" class="main-breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item"><a href="javascript:void(0)">User</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">User Profile</li>
-                </ol>
-            </nav>
+{{--            <nav aria-label="breadcrumb" class="main-breadcrumb">--}}
+{{--                <ol class="breadcrumb">--}}
+{{--                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>--}}
+{{--                    <li class="breadcrumb-item"><a href="javascript:void(0)">User</a></li>--}}
+{{--                    <li class="breadcrumb-item active" aria-current="page">User Profile</li>--}}
+{{--                </ol>--}}
+{{--            </nav>--}}
             <!-- /Breadcrumb -->
 
             <div class="row gutters-sm">
@@ -73,7 +73,7 @@
                                 </div>
 
                                 <div class="col-sm-4 col-md-4 col-xl-4 bg-success">
-                                    <img src="{{ $value->images->image }}" alt="">
+                                    <img src="{{ $value->images[0]->image }}" alt="">
                                 </div>
                             </div>
                             <hr>

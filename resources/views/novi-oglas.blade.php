@@ -34,9 +34,9 @@
         <hr>
 
         <label for="stanje">Stanje predmeta</label><br>
-        <input class="@error('stanje') is-invalid @enderror" type="radio" name="stanje" value="novo"> Novo<br>
-        <input class="" type="radio" name="stanje" value="polovno"> Polovno<br>
-        <input class="" type="radio" name="stanje" value="neispravno"> Neispravno<br><br>
+        <input class="@error('stanje') is-invalid @enderror" type="radio" name="stanje" value="Novo"> Novo<br>
+        <input class="" type="radio" name="stanje" value="Polovno"> Polovno<br>
+        <input class="" type="radio" name="stanje" value="Neispravno"> Neispravno<br><br>
         @error('stanje')
         <span class="text-danger">{{ $message }}</span><br>
         @enderror<br>

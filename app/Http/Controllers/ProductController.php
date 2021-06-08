@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ValidateNewAdRequest;
 use App\Http\Requests\ValidateProductUpdate;
 use App\Http\Requests\ValidationProductImage;
+use App\Models\Archive;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductImage;
@@ -133,6 +134,9 @@ class ProductController extends Controller
 
     public function destroy($id)
     {
+        $product = Product::findProduct($id);
+        Archive::archive($product->user_id, $product->id, $product->category_id, $product->product_condition, $product->price);
+
         Product::destroyProduct($id);
         return redirect()->back();
 

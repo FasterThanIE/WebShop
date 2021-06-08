@@ -109,6 +109,11 @@ class Product extends Model
         return $product_id;
     }
 
+    public static function findProduct(int $product_id)
+    {
+       return Product::find($product_id);
+    }
+
 
     /**
      * @param int $id

@@ -73,7 +73,9 @@
                                 </div>
 
                                 <div class="col-sm-4 col-md-4 col-xl-4 bg-success">
-                                    <img src="{{ $value->images[0]->image }}" alt="">
+                                    @if(isset($value->images[0]->image))
+                                        <img width="70" src=" {{ $value->images[0]->image }}" alt="">
+                                    @endif
                                 </div>
                             </div>
                             <hr>

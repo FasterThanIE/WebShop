@@ -163,4 +163,13 @@ class User extends Authenticatable
     }
 
 
+    public static function destroyUser(int $user_id)
+    {
+        $user = User::find($user_id);
+
+        return $user->delete();
+
+    }
+
+
 }

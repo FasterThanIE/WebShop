@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ValidateUserRequest;
+use App\Models\Archive;
 use App\Models\Product;
 use App\Models\UserInformation;
 use Illuminate\Http\Request;
@@ -63,8 +64,24 @@ class UserController extends Controller
             User::updateUserInfo($user_id, $request->city, $request->address, $request->state, $request->mobile_number);
 
 
-            return redirect('/')->with('status', 'Profil je izmenjen!');
-
+        return redirect('/')->with('status', 'Profil je izmenjen!');
 
     }
+
+
+    public function destroy()
+    {
+       $user = User::findUserById(auth()->user()->id);
+
+        foreach ($user->products as $product){
+            Archive::archive($user->id, $product->id, $product->category_id, $product->product_condition, $product->price);
+        }
+
+        User::destroyUser(auth()->user()->id);
+
+        return redirect('/')->with('status', 'Profil je izbrisan!');
+    }
+
+
+
 }

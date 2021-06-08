@@ -32,7 +32,13 @@
                                     <p class="text-muted font-size-sm d-inline-block"> {{ $user->userInfo->address }} </p><br>
                                     <p class="text-muted font-size-sm d-inline-block"> {{ $user->userInfo->mobile_number }} </p>
                                     <br>
-                                    <a href="{{ route('profile.edit') }}" class="font-weight-300 text-danger btn btn-info">Izmeni svoje podatke</a>
+                                    <a href="{{ route('profile.edit') }}" class="font-weight-300 text-danger btn btn-info mt-3">Izmeni svoje podatke</a>
+
+                                    <form class="mt-2" method="post" action="{{ route('profile.destroy') }}" onsubmit="return confirm('Da li ste sigurni?');">
+                                       @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger" type="submit">Izbriši svoj profil</button>
+                                    </form>
                                     {{--                                    <button class="btn btn-primary">Follow</button>--}}
 {{--                                    <button class="btn btn-outline-primary">Message</button>--}}
                                 </div>
@@ -75,7 +81,7 @@
                                     <div class="col-sm-5 col-md-5 col-xl-5">
                                         <a href=" {{ route('product.edit', $value->uri) }}" class="text-right btn btn-info">Izmeni</a>
 
-                                        <form class="d-inline-block" method="POST" action="{{ route('product.destroy', $value->id) }}">
+                                        <form class="d-inline-block" method="POST" action="{{ route('product.destroy', $value->id) }}" onsubmit="return confirm('Da li ste sigurni?');">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-danger" type="submit">Obriši</button>
@@ -85,7 +91,7 @@
 
                                     <div class="col-sm-4 col-md-4 col-xl-4 bg-success">
                                         @if(isset($value->images[0]->image))
-                                        <img src="{{ $value->images[0]->image }}" alt="">
+                                        <img  src="{{ $value->images[0]->image }}" alt="">
                                             @endif
                                     </div>
                                 </div>

@@ -25,7 +25,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
-                                <img src="/images/{{ $product->images[0]->image }}" alt="Admin" class="rounded-circle" width="150">
+                                <img src="{{ $product->images[0]->image }}" alt="Admin" class="rounded-circle" width="150">
                                 <div class="mt-3 text-left">
 
                                     <h4>{{ $product->name }}</h4>
@@ -39,7 +39,7 @@
                         <div class="row">
                             @foreach($product->images as $image)
                             <div class="col-sm-6 col-md-6 col-xl-6 text-center mb-2">
-                                    <img style="width: 90%;" class="" width="" src="/images/{{$image->image}}" alt="">
+                                    <img style="width: 90%;" class="" width="" src="{{$image->image}}" alt="">
 
                                 <a href="{{ route('productImage.destroy', $image->id) }}">Obrisi</a>
                             </div>

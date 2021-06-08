@@ -27,6 +27,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('moj-profil/{uri}', 'App\Http\Controllers\UserController@myProfileShow')->name('myProfile.show');
     Route::get('izmeni-profil', 'App\Http\Controllers\UserController@edit')->name('profile.edit');
     Route::post('izmeni-profil', 'App\Http\Controllers\UserController@update')->name('profile.update');
+    Route::delete('obrisi-profil', 'App\Http\Controllers\UserController@destroy')->name('profile.destroy');
 
 
     Route::get('izmeni-proizvod/{uri}', 'App\Http\Controllers\ProductController@edit')->name('product.edit');
